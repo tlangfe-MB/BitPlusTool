@@ -47,6 +47,16 @@
                         (erkennt automatisch, welches Fahrzeugmodell/Motor zu einer Motor-Codekombination gehoert).
                     </Paragraph>
 
+                    <BlockUIContainer Margin="0,4,0,14">
+                        <Border BorderBrush="{DynamicResource BorderSubtleBrush}" BorderThickness="1" CornerRadius="6" Background="{DynamicResource CardBackgroundBrush}" Padding="8" Effect="{DynamicResource CardShadow}">
+                            <StackPanel>
+                                <Image Source="Resources/Screenshots/plusansicht.png" Stretch="Uniform" MaxWidth="760"/>
+                                <TextBlock Text="Beispiel: PLUS-Ansicht mit mehreren Nr.-Bloecken (Baureihe 206 ausgewaehlt)"
+                                           FontSize="12" FontStyle="Italic" Foreground="{DynamicResource TextMutedBrush}" Margin="0,6,0,0" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </BlockUIContainer>
+
                     <Paragraph FontSize="19" FontWeight="Bold" Foreground="{DynamicResource GroupHeaderFgBrush}" Margin="0,10,0,6">
                         Eingabebereich (oben)
                     </Paragraph>
@@ -105,6 +115,25 @@
                             Merkmal referenziert, kann hier dessen eigene Export-XML importiert werden, um die Definition
                             direkt einzusehen.</Paragraph></ListItem>
                     </List>
+
+                    <BlockUIContainer Margin="0,4,0,14">
+                        <Border BorderBrush="{DynamicResource BorderSubtleBrush}" BorderThickness="1" CornerRadius="6" Background="{DynamicResource CardBackgroundBrush}" Padding="8" Effect="{DynamicResource CardShadow}">
+                            <StackPanel>
+                                <Image Source="Resources/Screenshots/normalisiertelogik.png" Stretch="Uniform" MaxWidth="760"/>
+                                <TextBlock Text="Beispiel: Normalisierte Logik mit erkannten Codes und Motor-Zuordnung"
+                                           FontSize="12" FontStyle="Italic" Foreground="{DynamicResource TextMutedBrush}" Margin="0,6,0,0" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </BlockUIContainer>
+                    <BlockUIContainer Margin="0,4,0,14">
+                        <Border BorderBrush="{DynamicResource BorderSubtleBrush}" BorderThickness="1" CornerRadius="6" Background="{DynamicResource CardBackgroundBrush}" Padding="8" Effect="{DynamicResource CardShadow}">
+                            <StackPanel>
+                                <Image Source="Resources/Screenshots/selbstkontrolle.png" Stretch="Uniform" MaxWidth="760"/>
+                                <TextBlock Text="Beispiel: Selbstkontrolle - alle Pruefungen gruen/bestanden"
+                                           FontSize="12" FontStyle="Italic" Foreground="{DynamicResource TextMutedBrush}" Margin="0,6,0,0" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </BlockUIContainer>
 
                     <Paragraph FontSize="19" FontWeight="Bold" Foreground="{DynamicResource GroupHeaderFgBrush}" Margin="0,10,0,6">
                         Hintergrund-Datenquellen

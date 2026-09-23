@@ -34,7 +34,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-        Title += " – v" + version;
+        Title += $" (V. {version})";
         _ = CodeCatalog.RefreshIfStaleAsync(); // Codeliste im Hintergrund aktualisieren, blockiert den Start nicht.
         Loaded += (_, _) => { _baseWidth = Width; _baseHeight = Height; Run(); };
     }

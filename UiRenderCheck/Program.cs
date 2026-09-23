@@ -2,6 +2,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.IO;
+using System.Linq;
 using BitPlusTool;
 
 namespace UiRenderCheck;
@@ -81,6 +82,39 @@ public static class Program
             helpEncoder.Save(fs);
         Console.WriteLine("Saved out_help.png (" + hw + "x" + hh + ")");
         help.Close();
+
+        // Screenshot-Ausschnitte fuer die Anleitung: helles Theme, TME/Baureihe gefuellt, PLUS-Ansicht mit Karten.
+        Application.Current.Resources.MergedDictionaries[0] = new System.Windows.ResourceDictionary
+        {
+            Source = new Uri("pack://application:,,,/BitPlusTool;component/Themes/LightTheme.xaml", UriKind.Absolute)
+        };
+        moonIcon.Visibility = Visibility.Collapsed;
+        sunIcon.Visibility = Visibility.Visible;
+        sunRays.Visibility = Visibility.Visible;
+
+        var tmBox = (System.Windows.Controls.TextBox)window.FindName("TmBox")!;
+        tmBox.Text = "TH1144";
+        var baureihePanel = (System.Windows.Controls.WrapPanel)window.FindName("BaureihePanel")!;
+        var chip206 = baureihePanel.Children.OfType<System.Windows.Controls.RadioButton>().First(r => (string)r.Content == "206");
+        chip206.IsChecked = true;
+        runButton.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
+
+        var screenshotDir = @"C:\Users\tlangfe\source\BitPlusTool\Resources\Screenshots";
+        Directory.CreateDirectory(screenshotDir);
+
+        var mainTabs = (System.Windows.Controls.TabControl)window.FindName("MainTabs")!;
+
+        mainTabs.SelectedIndex = 0; // PLUS-Ansicht
+        Snapshot(Path.Combine(screenshotDir, "plusansicht.png"));
+
+        mainTabs.SelectedIndex = 3; // Selbstkontrolle
+        Snapshot(Path.Combine(screenshotDir, "selbstkontrolle.png"));
+
+        // Fuer die Normalisierte-Logik-Ansicht ein Motor-Codepaket zeigen, damit die Motor-Erkennung sichtbar ist.
+        codeBox.Text = "M256+M30+M016+M005+M010;";
+        runButton.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
+        mainTabs.SelectedIndex = 1; // Normalisierte Logik
+        Snapshot(Path.Combine(screenshotDir, "normalisiertelogik.png"));
 
         window.Close();
         app.Shutdown();

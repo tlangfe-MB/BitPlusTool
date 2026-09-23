@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitPlusTool"
         mc:Ignorable="d"
-        Title="BIT PLUS Tool – FIX Auswerten" Height="860" Width="1360" MinHeight="640" MinWidth="1050"
+        Title="BIT PLUS Tool" Height="860" Width="1360" MinHeight="640" MinWidth="1050"
         WindowStartupLocation="CenterScreen" Background="{DynamicResource PageBackgroundBrush}" FontFamily="Segoe UI"
         Icon="Resources/AppIcon.ico">
     <Grid>
@@ -34,7 +34,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <TextBlock Text="BIT PLUS Tool – FIX Auswerten" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}"/>
+                <TextBlock Text="BIT PLUS Tool" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}"/>
                 <Border Background="{DynamicResource WarnBackgroundBrush}" BorderBrush="{DynamicResource WarnBorderBrush}" BorderThickness="1" CornerRadius="7" Padding="10,7" Margin="0,8,0,0">
                     <TextBlock TextWrapping="Wrap" Foreground="{DynamicResource WarnTextBrush}" FontSize="14">
                         <Run FontWeight="Bold" Text="Hinweis: "/>
