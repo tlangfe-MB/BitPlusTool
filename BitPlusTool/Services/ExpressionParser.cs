@@ -108,6 +108,7 @@ public static class ExpressionParser
         if (SnrRegex.IsMatch(t) || t.StartsWith("SNR", StringComparison.Ordinal)) return TokenType.Snr;
         if (t.StartsWith("EK", StringComparison.Ordinal)) return TokenType.Ek;
         if (t.StartsWith("BR", StringComparison.Ordinal)) return TokenType.Br;
+        if (t.StartsWith("BM", StringComparison.Ordinal)) return TokenType.Bm;
         if (TmeRegex1.IsMatch(t) || TmeRegex2.IsMatch(t)) return TokenType.Tme;
         if (PcvRegex1.IsMatch(t) || PcvRegex2.IsMatch(t)) return TokenType.Pcv;
         if (TmeOverrides.TryGetValue(t, out var isTme)) return isTme ? TokenType.Tme : TokenType.Pc;
@@ -120,6 +121,7 @@ public static class ExpressionParser
         if (type == TokenType.Snr) return t.StartsWith("SNR", StringComparison.Ordinal) ? t.Substring(3) : t;
         if (type == TokenType.Ek) return (t.StartsWith("EK", StringComparison.Ordinal) ? t.Substring(2) : t).PadRight(28, '*');
         if (type == TokenType.Br) return t.StartsWith("BR", StringComparison.Ordinal) ? t.Substring(2) : t;
+        if (type == TokenType.Bm) return (t.StartsWith("BM", StringComparison.Ordinal) ? t.Substring(2) : t).PadRight(12, '*');
         return type == TokenType.Pcv ? t.PadRight(6, '*') : t;
     }
 

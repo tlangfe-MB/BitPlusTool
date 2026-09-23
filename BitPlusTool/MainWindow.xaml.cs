@@ -356,6 +356,11 @@ public partial class MainWindow : Window
                 parts.Add("BR: Baureihe (Zeilenkriterium, kein Ausstattungscode) - Wert: " + ExpressionParser.ValueOf(t, typ));
                 continue;
             }
+            if (typ == TokenType.Bm)
+            {
+                parts.Add("BM: Baumuster (Struktur-/Modellvariante, kein Ausstattungscode) - Wert: " + ExpressionParser.ValueOf(t, typ).TrimEnd('*'));
+                continue;
+            }
             var entry = CodeCatalog.TryGet(t);
             if (entry is null) continue;
             var mark = "";

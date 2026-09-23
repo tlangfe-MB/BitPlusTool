@@ -105,6 +105,7 @@ public static class XmlTemplateBuilder
         TokenType.Snr => "SNR",
         TokenType.Ek => "EK",
         TokenType.Br => "BR",
+        TokenType.Bm => "BM",
         _ => "PC",
     };
 
