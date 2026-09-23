@@ -20,7 +20,9 @@ function New-RobotBitmap {
     $g.Clear([System.Drawing.Color]::Transparent)
 
     $black = [System.Drawing.Color]::FromArgb(255, 15, 15, 15)
-    $yellow = [System.Drawing.Color]::FromArgb(255, 15, 90, 189)
+    $blueLight = [System.Drawing.Color]::FromArgb(255, 70, 150, 230)
+    $blueDark = [System.Drawing.Color]::FromArgb(255, 8, 40, 95)
+    $yellow = $blueLight
     $blackBrush = New-Object System.Drawing.SolidBrush $black
     $yellowBrush = New-Object System.Drawing.SolidBrush $yellow
 
@@ -36,14 +38,16 @@ function New-RobotBitmap {
     $g.DrawLine($pen, $cx, $size*0.10, $cx, $size*0.20)
     $g.FillEllipse($yellowBrush, $cx-$size*0.035, $size*0.055, $size*0.07, $size*0.07)
 
-    # Head (yellow rounded rect)
+    # Head (blue rounded rect, mit Farbverlauf hell->dunkel)
     $headX = $size * 0.20
     $headY = $size * 0.22
     $headW = $size * 0.60
     $headH = $size * 0.56
     $headPath = New-Object System.Drawing.Drawing2D.GraphicsPath
     Add-RoundedRectPath $headPath $headX $headY $headW $headH ($size * 0.10)
-    $g.FillPath($yellowBrush, $headPath)
+    $headRect = New-Object System.Drawing.RectangleF $headX, $headY, $headW, $headH
+    $headGradient = New-Object System.Drawing.Drawing2D.LinearGradientBrush($headRect, $blueLight, $blueDark, [System.Drawing.Drawing2D.LinearGradientMode]::ForwardDiagonal)
+    $g.FillPath($headGradient, $headPath)
 
     # Eyes (black)
     $eyeW = $size * 0.11
