@@ -54,7 +54,10 @@
                         <ListItem><Paragraph><Bold>Technisches Merkmal (TME)</Bold> - z. B. "TH1144". Wird fuer den Dateinamen
                             und die erzeugte XML benoetigt.</Paragraph></ListItem>
                         <ListItem><Paragraph><Bold>Baureihe</Bold> - optionale Auswahl (Chips wie 192, 206, 232, ...) fuer die
-                            Gueltigkeits- und Codelisten-Pruefung einer bestimmten Baureihe. "Keine" ueberspringt diese Pruefung.</Paragraph></ListItem>
+                            Gueltigkeits- und Codelisten-Pruefung einer bestimmten Baureihe. "Keine" ueberspringt diese Pruefung.
+                            Wird eine Motor-Codekombination fuer mehrere Baureihen gleichzeitig gefunden (z. B. derselbe
+                            AMG-Motor in mehreren Modellen), grenzt die gewaehlte Baureihe die Motor-Erkennung automatisch
+                            auf genau ein Fahrzeugmodell ein.</Paragraph></ListItem>
                         <ListItem><Paragraph><Bold>Dateiname XML</Bold> - wird automatisch aus dem TME gebildet (z. B.
                             "TH1144.xml"), kann aber frei ueberschrieben werden.</Paragraph></ListItem>
                         <ListItem><Paragraph><Bold>Codebedingung</Bold> - das grosse Eingabefeld: hier den logischen Ausdruck

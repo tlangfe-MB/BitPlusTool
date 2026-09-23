@@ -10,6 +10,7 @@ public class MotorEntry
     public string BmAa { get; set; } = "";
     public string Benennung { get; set; } = "";
     public string EntwBez { get; set; } = "";
+    public string Baureihe { get; set; } = "";
     public string VerkBez { get; set; } = "";
     public string Antriebsart { get; set; } = "";
     public string Kw { get; set; } = "";

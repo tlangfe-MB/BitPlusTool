@@ -333,7 +333,7 @@ public partial class MainWindow : Window
             // seiner Motor-Codekombination gehoert - so steht der Hinweis direkt hinter dem Motor-Code
             // (z. B. M177/M254) und nicht erst nach spaeteren, unabhaengigen Zeilen (z. B. TH-Referenzen).
             var blockTokens = v.Rows.SelectMany(r => r.Tokens);
-            var matches = MotorCatalog.FindMatches(blockTokens).DistinctBy(x => x.VerkBez + "|" + x.Ps).ToList();
+            var matches = MotorCatalog.FindMatches(blockTokens, baureihe).DistinctBy(x => x.VerkBez + "|" + x.Ps).ToList();
             var matchesByAnchorRow = new Dictionary<int, List<MotorEntry>>();
             foreach (var m in matches)
             {
@@ -357,8 +357,13 @@ public partial class MainWindow : Window
                 sb.Append('\n');
 
                 if (matchesByAnchorRow.TryGetValue(i, out var hits))
+                {
                     foreach (var m in hits)
                         sb.Append("     -> Motor erkannt: ").Append(DescribeMotor(m)).Append('\n');
+                    // Codekombination allein reicht nicht zur eindeutigen Baureihen-Zuordnung - Hinweis statt Raten.
+                    if (hits.Count > 1)
+                        sb.Append("     -> Mehrdeutig ohne Baureihe: oben Baureihe auswaehlen fuer genau einen Treffer.\n");
+                }
             }
             sb.Append('\n');
         }

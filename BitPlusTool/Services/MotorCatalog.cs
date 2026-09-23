@@ -1,4 +1,5 @@
 using System.IO;
+using System.Text.RegularExpressions;
 using BitPlusTool.Models;
 
 namespace BitPlusTool.Services;
@@ -16,12 +17,22 @@ public static class MotorCatalog
     /// automatische Zuordnung (statt bei jeder Ueberschneidung zu raten). Ist ein Treffer selbst nur eine
     /// Teilmenge eines ANDEREN, spezifischeren Treffers (z. B. "M654+M20" vs. "M654+M20+M013"), wird nur
     /// der genauere behalten - sonst wuerden z. B. bei M013 sowohl der C220D-Basiseintrag als auch der
-    /// spezifischere C200D-Eintrag gleichzeitig auftauchen.</summary>
-    public static List<MotorEntry> FindMatches(IEnumerable<string> blockTokens)
+    /// spezifischere C200D-Eintrag gleichzeitig auftauchen. Manche Motor-Codekombinationen sind fuer sich
+    /// allein ueber mehrere Baureihen hinweg identisch (z. B. AMG 53 R6 in C206/C192/C236/C254) - wenn eine
+    /// Baureihe uebergeben wird, wird zusaetzlich danach gefiltert, damit nur der wirklich passende Motor
+    /// uebrig bleibt.</summary>
+    public static List<MotorEntry> FindMatches(IEnumerable<string> blockTokens, string? baureihe = null)
     {
         var set = new HashSet<string>(blockTokens.Select(Norm), StringComparer.OrdinalIgnoreCase);
         var candidates = Entries.Where(e => e.Tokens.Count > 0 && e.Tokens.IsSubsetOf(set)).ToList();
-        return candidates.Where(c => !candidates.Any(other => !ReferenceEquals(other, c) && c.Tokens.IsProperSubsetOf(other.Tokens))).ToList();
+        var specific = candidates.Where(c => !candidates.Any(other => !ReferenceEquals(other, c) && c.Tokens.IsProperSubsetOf(other.Tokens))).ToList();
+
+        if (!string.IsNullOrWhiteSpace(baureihe))
+        {
+            var byBaureihe = specific.Where(e => e.Baureihe.Equals(baureihe, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (byBaureihe.Count > 0) return byBaureihe;
+        }
+        return specific;
     }
 
     private static string Norm(string t) => ExpressionParser.Tok(t);
@@ -47,6 +58,7 @@ public static class MotorCatalog
             var tokens = codebedingung.TrimEnd(';').Split('+', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
                 .Select(Norm).Where(t => t.Length > 0).ToHashSet(StringComparer.OrdinalIgnoreCase);
 
+            var entwBez = f[5];
             result.Add(new MotorEntry
             {
                 Codebedingung = codebedingung,
@@ -54,7 +66,8 @@ public static class MotorCatalog
                 Lk = f[2],
                 BmAa = f[3],
                 Benennung = f[4],
-                EntwBez = f[5],
+                EntwBez = entwBez,
+                Baureihe = Regex.Match(entwBez, @"\d{3}").Value,
                 VerkBez = f[6],
                 Antriebsart = f[7],
                 Kw = f[8],
