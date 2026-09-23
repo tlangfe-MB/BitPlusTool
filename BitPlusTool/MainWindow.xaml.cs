@@ -57,6 +57,11 @@ public partial class MainWindow : Window
 
     private void RunButton_Click(object sender, RoutedEventArgs e) => Run();
 
+    private void HelpButton_Click(object sender, RoutedEventArgs e)
+    {
+        new HelpWindow { Owner = this }.ShowDialog();
+    }
+
     private void TmBox_TextChanged(object sender, TextChangedEventArgs e) => Run();
 
     private void BaureiheChip_Checked(object sender, RoutedEventArgs e) => Run();

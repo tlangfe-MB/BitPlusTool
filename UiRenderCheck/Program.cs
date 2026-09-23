@@ -61,6 +61,27 @@ public static class Program
         runButton.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
         Snapshot(@"C:\Users\tlangfe\source\UiRenderCheck\out_blocks.png");
 
+        var help = new HelpWindow
+        {
+            Owner = window,
+            WindowStartupLocation = WindowStartupLocation.Manual,
+            Left = -32000,
+            Top = -32000,
+            ShowInTaskbar = false
+        };
+        help.Show();
+        help.UpdateLayout();
+        var hw = (int)help.ActualWidth;
+        var hh = (int)help.ActualHeight;
+        var helpRtb = new RenderTargetBitmap(hw, hh, 96, 96, PixelFormats.Pbgra32);
+        helpRtb.Render(help);
+        var helpEncoder = new PngBitmapEncoder();
+        helpEncoder.Frames.Add(BitmapFrame.Create(helpRtb));
+        using (var fs = File.Create(@"C:\Users\tlangfe\source\UiRenderCheck\out_help.png"))
+            helpEncoder.Save(fs);
+        Console.WriteLine("Saved out_help.png (" + hw + "x" + hh + ")");
+        help.Close();
+
         window.Close();
         app.Shutdown();
         Console.WriteLine("DONE");

@@ -30,6 +30,7 @@
             <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top" Margin="0,0,14,0">
                 <Button x:Name="ZoomOutButton" Content="A-" Style="{StaticResource ZoomButton}" Click="ZoomButton_Click" ToolTip="Schrift verkleinern"/>
                 <Button x:Name="ZoomInButton" Content="A+" Style="{StaticResource ZoomButton}" Click="ZoomButton_Click" ToolTip="Schrift vergroessern" Margin="6,0,0,0"/>
+                <Button x:Name="HelpButton" Content="?" Style="{StaticResource ZoomButton}" Click="HelpButton_Click" ToolTip="Anleitung oeffnen" Margin="6,0,0,0"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1">
