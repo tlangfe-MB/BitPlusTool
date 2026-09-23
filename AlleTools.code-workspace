@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": "BitPlusTool",
+			"path": "BitPlusTool"
+		},
+		{
+			"name": "ParserCheck",
+			"path": "ParserCheck"
+		},
+		{
+			"name": "RoundtripCheck",
+			"path": "RoundtripCheck"
+		},
+		{
+			"name": "SnrCheck",
+			"path": "SnrCheck"
+		},
+		{
+			"name": "SnrTypeCheck",
+			"path": "SnrTypeCheck"
+		},
+		{
+			"name": "TmeAmbigCheck",
+			"path": "TmeAmbigCheck"
+		}
+	],
+	"settings": {}
+}

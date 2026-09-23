@@ -1,0 +1,885 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BitAdministrationTMEXmlSerialization>
+  <Head>
+    <PlusVersion>2025.4.2.26498</PlusVersion>
+    <ExportDate>03.06.2026 09:35</ExportDate>
+    <ExportUserId>TLANGFE</ExportUserId>
+    <DialogHandle>BITAD</DialogHandle>
+    <DialogName>BitAdministrationTMEController</DialogName>
+    <ImportVersions>
+      <Valid>7.3.0</Valid>
+      <Valid>7.4.0</Valid>
+      <Valid>7.5.0</Valid>
+      <Valid>7.6.0</Valid>
+      <Valid>7.7.0</Valid>
+      <Valid>7.8.0</Valid>
+      <Valid>7.9.0</Valid>
+      <Valid>8.0.0</Valid>
+      <Valid>8.1.0</Valid>
+      <Valid>8.2.0</Valid>
+      <Valid>8.3.0</Valid>
+      <Valid>8.4.0</Valid>
+      <Valid>8.5.0</Valid>
+      <Valid>8.6.0</Valid>
+      <Valid>8.7.0</Valid>
+      <Valid>8.8.0</Valid>
+      <Valid>8.9.0</Valid>
+      <Valid>9.0.0</Valid>
+      <Valid>9.1.0</Valid>
+      <Valid>9.2.0</Valid>
+      <Valid>9.2.1</Valid>
+      <Valid>9.3.0</Valid>
+      <Valid>9.3.1</Valid>
+      <Valid>9.4.0</Valid>
+      <Valid>9.5.0</Valid>
+      <Valid>9.6.0</Valid>
+      <Valid>9.7.0</Valid>
+      <Valid>9.8.0</Valid>
+      <Valid>9.9.0</Valid>
+      <Valid>2019.1</Valid>
+      <Valid>2020.1</Valid>
+      <Valid>2020.2</Valid>
+      <Valid>2020.3</Valid>
+      <Valid>2020.4</Valid>
+      <Valid>2020.5</Valid>
+      <Valid>2020.6</Valid>
+      <Valid>2020.7</Valid>
+      <Valid>2020.8</Valid>
+      <Valid>2021.1</Valid>
+      <Valid>2021.2</Valid>
+      <Valid>2021.3</Valid>
+      <Valid>2021.4</Valid>
+      <Valid>2021.5</Valid>
+      <Valid>2021.6</Valid>
+      <Valid>2021.7</Valid>
+      <Valid>2021.8</Valid>
+      <Valid>2022.1</Valid>
+      <Valid>2022.2</Valid>
+      <Valid>2022.3</Valid>
+      <Valid>2022.4</Valid>
+      <Valid>2022.5</Valid>
+      <Valid>2022.6</Valid>
+      <Valid>2022.7</Valid>
+      <Valid>2022.8</Valid>
+      <Valid>2023.1</Valid>
+      <Valid>2023.2</Valid>
+      <Valid>2023.3</Valid>
+      <Valid>2023.4</Valid>
+      <Valid>2023.5</Valid>
+      <Valid>2023.6</Valid>
+      <Valid>2023.7</Valid>
+      <Valid>2023.8</Valid>
+      <Valid>2023.9</Valid>
+      <Valid>2024.1</Valid>
+      <Valid>2024.2</Valid>
+      <Valid>2024.3</Valid>
+      <Valid>2024.4</Valid>
+      <Valid>2025.1</Valid>
+      <Valid>2025.2</Valid>
+      <Valid>2025.3</Valid>
+      <Valid>2025.4</Valid>
+    </ImportVersions>
+  </Head>
+  <Data>
+    <DataTables>
+      <DataTable>
+        <xs:schema id="BitVerwaltungTMEDataSet" targetNamespace="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns:mstns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+          <xs:element name="BitVerwaltungTMEDataSet" msdata:IsDataSet="true" msdata:MainDataTable="http_x003A__x002F__x002F_tempuri.org_x002F_BitVerwaltungTMEDataSet.xsd_x003A_TmeHeaderDataImport" msdata:UseCurrentLocale="true">
+            <xs:complexType>
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="TmeHeaderDataImport">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="PnrVidDiscriminator" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="3" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="TechnischesMerkmal" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="6" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="Beschreibung" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="50" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="VersionsNr" type="xs:int" default="0" minOccurs="0" />
+                      <xs:element name="AktiviertDatum" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="10" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="AlleKrtErlaubt" type="xs:boolean" default="false" minOccurs="0" />
+                      <xs:element name="VormUeberschreiben" type="xs:boolean" default="false" minOccurs="0" />
+                      <xs:element name="ErstelltVon" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="12" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="ErstelltAm" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="28" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="GeaendertVon" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="12" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="GeaendertAm" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="28" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="Kommentar" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="100" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="LupdTimestamp" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="26" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="DisplayLupdTimestamp" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="40" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="TechnischesMerkmalAlt" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="6" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="BackupFlag" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="1" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="VormerkungVorh" type="xs:boolean" default="false" minOccurs="0" />
+                      <xs:element name="Pflegeberechtigung" type="xs:boolean" default="false" minOccurs="0" />
+                      <xs:element name="Vers0Timestamp" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="23" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="Vers1Timestamp" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="23" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="Vers2Timestamp" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="23" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="Vers3Timestamp" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="23" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="Vers4Timestamp" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="23" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="Vers0Leiste" type="xs:int" default="1" minOccurs="0" />
+                      <xs:element name="Vers4Leiste" type="xs:int" default="1" minOccurs="0" />
+                      <xs:element name="Vers3Leiste" type="xs:int" default="1" minOccurs="0" />
+                      <xs:element name="Vers2Leiste" type="xs:int" default="1" minOccurs="0" />
+                      <xs:element name="Vers1Leiste" type="xs:int" default="1" minOccurs="0" />
+                      <xs:element name="Vorgemerkt" type="xs:boolean" default="false" minOccurs="0" />
+                      <xs:element name="VormerkungVAnzeigen" type="xs:int" default="0" minOccurs="0" />
+                      <xs:element name="KopierenVersionNr" type="xs:int" minOccurs="0" />
+                      <xs:element name="KopierenAbgebrochen" type="xs:boolean" default="false" minOccurs="0" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:schema>
+        <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+          <BitVerwaltungTMEDataSet xmlns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd">
+            <TmeHeaderDataImport diffgr:id="TmeHeaderDataImport2" msdata:rowOrder="0" diffgr:hasChanges="modified">
+              <PnrVidDiscriminator>PNR</PnrVidDiscriminator>
+              <TechnischesMerkmal>TH1164</TechnischesMerkmal>
+              <Beschreibung>B01+M254+-M654+-M256+-1U2+-8B2;</Beschreibung>
+              <VersionsNr>0</VersionsNr>
+              <AktiviertDatum />
+              <AlleKrtErlaubt>false</AlleKrtErlaubt>
+              <VormUeberschreiben>false</VormUeberschreiben>
+              <ErstelltVon>TLANGFE</ErstelltVon>
+              <ErstelltAm>2026-05-07:09:39:43.512</ErstelltAm>
+              <GeaendertVon>TLANGFE</GeaendertVon>
+              <GeaendertAm>2026-05-07:09:39:43.512</GeaendertAm>
+              <Kommentar />
+              <LupdTimestamp>2026-05-07:09:39:43.512</LupdTimestamp>
+              <DisplayLupdTimestamp>07.05.2026 - 09:39:43.512</DisplayLupdTimestamp>
+              <TechnischesMerkmalAlt>TH1164</TechnischesMerkmalAlt>
+              <BackupFlag />
+              <VormerkungVorh>false</VormerkungVorh>
+              <Pflegeberechtigung>true</Pflegeberechtigung>
+              <Vers0Timestamp>2026-05-07:07:39:43.512</Vers0Timestamp>
+              <Vers1Timestamp>2026-05-07:07:39:40.815</Vers1Timestamp>
+              <Vers2Timestamp />
+              <Vers3Timestamp />
+              <Vers4Timestamp />
+              <Vers0Leiste>1</Vers0Leiste>
+              <Vers4Leiste>1</Vers4Leiste>
+              <Vers3Leiste>1</Vers3Leiste>
+              <Vers2Leiste>1</Vers2Leiste>
+              <Vers1Leiste>1</Vers1Leiste>
+              <Vorgemerkt>false</Vorgemerkt>
+              <VormerkungVAnzeigen>0</VormerkungVAnzeigen>
+              <KopierenAbgebrochen>false</KopierenAbgebrochen>
+            </TmeHeaderDataImport>
+          </BitVerwaltungTMEDataSet>
+          <diffgr:before>
+            <TmeHeaderDataImport diffgr:id="TmeHeaderDataImport2" msdata:rowOrder="0" xmlns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd">
+              <PnrVidDiscriminator />
+              <TechnischesMerkmal>TH1164</TechnischesMerkmal>
+              <Beschreibung>B01+M254+-M654+-M256+-1U2+-8B2;</Beschreibung>
+              <VersionsNr>0</VersionsNr>
+              <AktiviertDatum />
+              <AlleKrtErlaubt>false</AlleKrtErlaubt>
+              <VormUeberschreiben>false</VormUeberschreiben>
+              <ErstelltVon>TLANGFE</ErstelltVon>
+              <ErstelltAm>2026-05-07:09:39:43.512</ErstelltAm>
+              <GeaendertVon>TLANGFE</GeaendertVon>
+              <GeaendertAm>2026-05-07:09:39:43.512</GeaendertAm>
+              <Kommentar />
+              <LupdTimestamp>2026-05-07:09:39:43.512</LupdTimestamp>
+              <DisplayLupdTimestamp>07.05.2026 - 09:39:43.512</DisplayLupdTimestamp>
+              <TechnischesMerkmalAlt>TH1164</TechnischesMerkmalAlt>
+              <BackupFlag />
+              <VormerkungVorh>false</VormerkungVorh>
+              <Pflegeberechtigung>true</Pflegeberechtigung>
+              <Vers0Timestamp>2026-05-07:07:39:43.512</Vers0Timestamp>
+              <Vers1Timestamp>2026-05-07:07:39:40.815</Vers1Timestamp>
+              <Vers2Timestamp />
+              <Vers3Timestamp />
+              <Vers4Timestamp />
+              <Vers0Leiste>1</Vers0Leiste>
+              <Vers4Leiste>1</Vers4Leiste>
+              <Vers3Leiste>1</Vers3Leiste>
+              <Vers2Leiste>1</Vers2Leiste>
+              <Vers1Leiste>1</Vers1Leiste>
+              <Vorgemerkt>false</Vorgemerkt>
+              <VormerkungVAnzeigen>0</VormerkungVAnzeigen>
+              <KopierenAbgebrochen>false</KopierenAbgebrochen>
+            </TmeHeaderDataImport>
+          </diffgr:before>
+        </diffgr:diffgram>
+      </DataTable>
+      <DataTable>
+        <xs:schema id="BitVerwaltungTMEDataSet" targetNamespace="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns:mstns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+          <xs:element name="BitVerwaltungTMEDataSet" msdata:IsDataSet="true" msdata:MainDataTable="http_x003A__x002F__x002F_tempuri.org_x002F_BitVerwaltungTMEDataSet.xsd_x003A_TmeAusdruckTabelleImport" msdata:UseCurrentLocale="true">
+            <xs:complexType>
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="TmeAusdruckTabelleImport">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="LfdNr" type="xs:int" default="0" minOccurs="0" />
+                      <xs:element name="ZeilenNr" type="xs:int" default="0" minOccurs="0" />
+                      <xs:element name="Kriterientyp" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="3" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="SpaltenNr" type="xs:int" default="0" minOccurs="0" />
+                      <xs:element name="Operator" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="2" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="WertS08S71RD" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="100" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="WertS08S81RD" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="100" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="LaengeWert" type="xs:int" default="0" minOccurs="0" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:schema>
+        <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+          <BitVerwaltungTMEDataSet xmlns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd">
+            <TmeAusdruckTabelleImport diffgr:id="TmeAusdruckTabelleImport16" msdata:rowOrder="0">
+              <LfdNr>1</LfdNr>
+              <ZeilenNr>1</ZeilenNr>
+              <Kriterientyp>PCV</Kriterientyp>
+              <SpaltenNr>1</SpaltenNr>
+              <Operator>=</Operator>
+              <WertS08S71RD>B01***</WertS08S71RD>
+              <WertS08S81RD />
+              <LaengeWert>6</LaengeWert>
+            </TmeAusdruckTabelleImport>
+            <TmeAusdruckTabelleImport diffgr:id="TmeAusdruckTabelleImport17" msdata:rowOrder="1">
+              <LfdNr>1</LfdNr>
+              <ZeilenNr>2</ZeilenNr>
+              <Kriterientyp>PCV</Kriterientyp>
+              <SpaltenNr>1</SpaltenNr>
+              <Operator>=</Operator>
+              <WertS08S71RD>M254**</WertS08S71RD>
+              <WertS08S81RD />
+              <LaengeWert>6</LaengeWert>
+            </TmeAusdruckTabelleImport>
+            <TmeAusdruckTabelleImport diffgr:id="TmeAusdruckTabelleImport18" msdata:rowOrder="2">
+              <LfdNr>1</LfdNr>
+              <ZeilenNr>3</ZeilenNr>
+              <Kriterientyp>PCV</Kriterientyp>
+              <SpaltenNr>1</SpaltenNr>
+              <Operator>&lt;&gt;</Operator>
+              <WertS08S71RD>M654**</WertS08S71RD>
+              <WertS08S81RD />
+              <LaengeWert>6</LaengeWert>
+            </TmeAusdruckTabelleImport>
+            <TmeAusdruckTabelleImport diffgr:id="TmeAusdruckTabelleImport19" msdata:rowOrder="3">
+              <LfdNr>1</LfdNr>
+              <ZeilenNr>4</ZeilenNr>
+              <Kriterientyp>PCV</Kriterientyp>
+              <SpaltenNr>1</SpaltenNr>
+              <Operator>&lt;&gt;</Operator>
+              <WertS08S71RD>M256**</WertS08S71RD>
+              <WertS08S81RD />
+              <LaengeWert>6</LaengeWert>
+            </TmeAusdruckTabelleImport>
+            <TmeAusdruckTabelleImport diffgr:id="TmeAusdruckTabelleImport20" msdata:rowOrder="4">
+              <LfdNr>1</LfdNr>
+              <ZeilenNr>5</ZeilenNr>
+              <Kriterientyp>PCV</Kriterientyp>
+              <SpaltenNr>1</SpaltenNr>
+              <Operator>&lt;&gt;</Operator>
+              <WertS08S71RD>1U2***</WertS08S71RD>
+              <WertS08S81RD />
+              <LaengeWert>6</LaengeWert>
+            </TmeAusdruckTabelleImport>
+            <TmeAusdruckTabelleImport diffgr:id="TmeAusdruckTabelleImport21" msdata:rowOrder="5">
+              <LfdNr>1</LfdNr>
+              <ZeilenNr>6</ZeilenNr>
+              <Kriterientyp>PCV</Kriterientyp>
+              <SpaltenNr>1</SpaltenNr>
+              <Operator>&lt;&gt;</Operator>
+              <WertS08S71RD>8B2***</WertS08S71RD>
+              <WertS08S81RD />
+              <LaengeWert>6</LaengeWert>
+            </TmeAusdruckTabelleImport>
+            <TmeAusdruckTabelleImport diffgr:id="TmeAusdruckTabelleImport22" msdata:rowOrder="6">
+              <LfdNr>1</LfdNr>
+              <ZeilenNr>7</ZeilenNr>
+              <Kriterientyp>TME</Kriterientyp>
+              <SpaltenNr>1</SpaltenNr>
+              <Operator>=</Operator>
+              <WertS08S71RD>TH1169</WertS08S71RD>
+              <WertS08S81RD />
+              <LaengeWert>6</LaengeWert>
+            </TmeAusdruckTabelleImport>
+          </BitVerwaltungTMEDataSet>
+        </diffgr:diffgram>
+      </DataTable>
+      <DataTable>
+        <xs:schema id="BitVerwaltungTMEDataSet" targetNamespace="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns:mstns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+          <xs:element name="BitVerwaltungTMEDataSet" msdata:IsDataSet="true" msdata:MainDataTable="http_x003A__x002F__x002F_tempuri.org_x002F_BitVerwaltungTMEDataSet.xsd_x003A_KommentarTabelleImport" msdata:UseCurrentLocale="true">
+            <xs:complexType>
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="KommentarTabelleImport">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="LfdNr" type="xs:int" default="0" minOccurs="0" />
+                      <xs:element name="Kommentar" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="100" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:schema>
+        <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+          <BitVerwaltungTMEDataSet xmlns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd">
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport100" msdata:rowOrder="0">
+              <LfdNr>1</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport101" msdata:rowOrder="1">
+              <LfdNr>2</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport102" msdata:rowOrder="2">
+              <LfdNr>3</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport103" msdata:rowOrder="3">
+              <LfdNr>4</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport104" msdata:rowOrder="4">
+              <LfdNr>5</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport105" msdata:rowOrder="5">
+              <LfdNr>6</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport106" msdata:rowOrder="6">
+              <LfdNr>7</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport107" msdata:rowOrder="7">
+              <LfdNr>8</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport108" msdata:rowOrder="8">
+              <LfdNr>9</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport109" msdata:rowOrder="9">
+              <LfdNr>10</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport110" msdata:rowOrder="10">
+              <LfdNr>11</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport111" msdata:rowOrder="11">
+              <LfdNr>12</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport112" msdata:rowOrder="12">
+              <LfdNr>13</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport113" msdata:rowOrder="13">
+              <LfdNr>14</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport114" msdata:rowOrder="14">
+              <LfdNr>15</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport115" msdata:rowOrder="15">
+              <LfdNr>16</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport116" msdata:rowOrder="16">
+              <LfdNr>17</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport117" msdata:rowOrder="17">
+              <LfdNr>18</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport118" msdata:rowOrder="18">
+              <LfdNr>19</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport119" msdata:rowOrder="19">
+              <LfdNr>20</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport120" msdata:rowOrder="20">
+              <LfdNr>21</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport121" msdata:rowOrder="21">
+              <LfdNr>22</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport122" msdata:rowOrder="22">
+              <LfdNr>23</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport123" msdata:rowOrder="23">
+              <LfdNr>24</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport124" msdata:rowOrder="24">
+              <LfdNr>25</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport125" msdata:rowOrder="25">
+              <LfdNr>26</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport126" msdata:rowOrder="26">
+              <LfdNr>27</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport127" msdata:rowOrder="27">
+              <LfdNr>28</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport128" msdata:rowOrder="28">
+              <LfdNr>29</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport129" msdata:rowOrder="29">
+              <LfdNr>30</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport130" msdata:rowOrder="30">
+              <LfdNr>31</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport131" msdata:rowOrder="31">
+              <LfdNr>32</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport132" msdata:rowOrder="32">
+              <LfdNr>33</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport133" msdata:rowOrder="33">
+              <LfdNr>34</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport134" msdata:rowOrder="34">
+              <LfdNr>35</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport135" msdata:rowOrder="35">
+              <LfdNr>36</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport136" msdata:rowOrder="36">
+              <LfdNr>37</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport137" msdata:rowOrder="37">
+              <LfdNr>38</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport138" msdata:rowOrder="38">
+              <LfdNr>39</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport139" msdata:rowOrder="39">
+              <LfdNr>40</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport140" msdata:rowOrder="40">
+              <LfdNr>41</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport141" msdata:rowOrder="41">
+              <LfdNr>42</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport142" msdata:rowOrder="42">
+              <LfdNr>43</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport143" msdata:rowOrder="43">
+              <LfdNr>44</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport144" msdata:rowOrder="44">
+              <LfdNr>45</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport145" msdata:rowOrder="45">
+              <LfdNr>46</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport146" msdata:rowOrder="46">
+              <LfdNr>47</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport147" msdata:rowOrder="47">
+              <LfdNr>48</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport148" msdata:rowOrder="48">
+              <LfdNr>49</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport149" msdata:rowOrder="49">
+              <LfdNr>50</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport150" msdata:rowOrder="50">
+              <LfdNr>51</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport151" msdata:rowOrder="51">
+              <LfdNr>52</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport152" msdata:rowOrder="52">
+              <LfdNr>53</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport153" msdata:rowOrder="53">
+              <LfdNr>54</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport154" msdata:rowOrder="54">
+              <LfdNr>55</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport155" msdata:rowOrder="55">
+              <LfdNr>56</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport156" msdata:rowOrder="56">
+              <LfdNr>57</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport157" msdata:rowOrder="57">
+              <LfdNr>58</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport158" msdata:rowOrder="58">
+              <LfdNr>59</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport159" msdata:rowOrder="59">
+              <LfdNr>60</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport160" msdata:rowOrder="60">
+              <LfdNr>61</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport161" msdata:rowOrder="61">
+              <LfdNr>62</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport162" msdata:rowOrder="62">
+              <LfdNr>63</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport163" msdata:rowOrder="63">
+              <LfdNr>64</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport164" msdata:rowOrder="64">
+              <LfdNr>65</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport165" msdata:rowOrder="65">
+              <LfdNr>66</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport166" msdata:rowOrder="66">
+              <LfdNr>67</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport167" msdata:rowOrder="67">
+              <LfdNr>68</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport168" msdata:rowOrder="68">
+              <LfdNr>69</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport169" msdata:rowOrder="69">
+              <LfdNr>70</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport170" msdata:rowOrder="70">
+              <LfdNr>71</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport171" msdata:rowOrder="71">
+              <LfdNr>72</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport172" msdata:rowOrder="72">
+              <LfdNr>73</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport173" msdata:rowOrder="73">
+              <LfdNr>74</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport174" msdata:rowOrder="74">
+              <LfdNr>75</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport175" msdata:rowOrder="75">
+              <LfdNr>76</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport176" msdata:rowOrder="76">
+              <LfdNr>77</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport177" msdata:rowOrder="77">
+              <LfdNr>78</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport178" msdata:rowOrder="78">
+              <LfdNr>79</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport179" msdata:rowOrder="79">
+              <LfdNr>80</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport180" msdata:rowOrder="80">
+              <LfdNr>81</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport181" msdata:rowOrder="81">
+              <LfdNr>82</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport182" msdata:rowOrder="82">
+              <LfdNr>83</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport183" msdata:rowOrder="83">
+              <LfdNr>84</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport184" msdata:rowOrder="84">
+              <LfdNr>85</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport185" msdata:rowOrder="85">
+              <LfdNr>86</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport186" msdata:rowOrder="86">
+              <LfdNr>87</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport187" msdata:rowOrder="87">
+              <LfdNr>88</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport188" msdata:rowOrder="88">
+              <LfdNr>89</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport189" msdata:rowOrder="89">
+              <LfdNr>90</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport190" msdata:rowOrder="90">
+              <LfdNr>91</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport191" msdata:rowOrder="91">
+              <LfdNr>92</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport192" msdata:rowOrder="92">
+              <LfdNr>93</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport193" msdata:rowOrder="93">
+              <LfdNr>94</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport194" msdata:rowOrder="94">
+              <LfdNr>95</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport195" msdata:rowOrder="95">
+              <LfdNr>96</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport196" msdata:rowOrder="96">
+              <LfdNr>97</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport197" msdata:rowOrder="97">
+              <LfdNr>98</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+            <KommentarTabelleImport diffgr:id="KommentarTabelleImport198" msdata:rowOrder="98">
+              <LfdNr>99</LfdNr>
+              <Kommentar />
+            </KommentarTabelleImport>
+          </BitVerwaltungTMEDataSet>
+        </diffgr:diffgram>
+      </DataTable>
+      <DataTable>
+        <xs:schema id="BitVerwaltungTMEDataSet" targetNamespace="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns:mstns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns="http://tempuri.org/BitVerwaltungTMEDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+          <xs:element name="BitVerwaltungTMEDataSet" msdata:IsDataSet="true" msdata:MainDataTable="http_x003A__x002F__x002F_tempuri.org_x002F_BitVerwaltungTMEDataSet.xsd_x003A_BereichTabelleImport" msdata:UseCurrentLocale="true">
+            <xs:complexType>
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="BereichTabelleImport">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="UserBereich" default="" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="8" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:schema>
+        <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1" />
+      </DataTable>
+    </DataTables>
+  </Data>
+</BitAdministrationTMEXmlSerialization>

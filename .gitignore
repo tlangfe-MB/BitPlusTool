@@ -1,0 +1,16 @@
+# Build output
+bin/
+obj/
+
+# Unrelated/other repos folder
+repos/
+
+# Generated preview images from UiRenderCheck
+UiRenderCheck/*.png
+
+# User-specific files
+*.user
+*.suo
+
+# VS Code
+.vs/

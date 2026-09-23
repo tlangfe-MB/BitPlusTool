@@ -1,0 +1,51 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <SolidColorBrush x:Key="AccentBrush" Color="#4DA3FF"/>
+    <SolidColorBrush x:Key="AccentDarkBrush" Color="#2E86D8"/>
+    <SolidColorBrush x:Key="AccentSoftBrush" Color="#1B3A57"/>
+    <LinearGradientBrush x:Key="AccentGradientBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#5FB0FF" Offset="0"/>
+        <GradientStop Color="#2E86D8" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="AccentGradientHoverBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#78BEFF" Offset="0"/>
+        <GradientStop Color="#3E93E8" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="PageBackgroundBrush" Color="#1B1F24"/>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#262B31"/>
+    <SolidColorBrush x:Key="CardBorderBrush" Color="#3A4149"/>
+    <SolidColorBrush x:Key="InputBorderBrush" Color="#4A525B"/>
+    <SolidColorBrush x:Key="InputBackgroundBrush" Color="#1E2328"/>
+    <SolidColorBrush x:Key="InputReadOnlyBackgroundBrush" Color="#20252A"/>
+    <SolidColorBrush x:Key="DisabledBrush" Color="#4A525B"/>
+
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#E8ECEF"/>
+    <SolidColorBrush x:Key="TextMutedBrush" Color="#9AA5AF"/>
+    <SolidColorBrush x:Key="TextOnAccentBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="TextCheckDetailBrush" Color="#C7CDD3"/>
+
+    <SolidColorBrush x:Key="OkBrush" Color="#4CC38A"/>
+    <SolidColorBrush x:Key="WarnBrush" Color="#E0B23D"/>
+    <SolidColorBrush x:Key="ErrorBrush" Color="#F0685D"/>
+    <SolidColorBrush x:Key="WarnBackgroundBrush" Color="#3A2F12"/>
+    <SolidColorBrush x:Key="WarnBorderBrush" Color="#6B551E"/>
+    <SolidColorBrush x:Key="WarnTextBrush" Color="#F0DCA0"/>
+
+    <SolidColorBrush x:Key="RowAltBrush" Color="#2C3238"/>
+    <SolidColorBrush x:Key="HeaderBgBrush" Color="#2E353C"/>
+    <SolidColorBrush x:Key="BorderSubtleBrush" Color="#3A4149"/>
+    <SolidColorBrush x:Key="GroupHeaderBgBrush" Color="#22344A"/>
+    <SolidColorBrush x:Key="GroupHeaderFgBrush" Color="#6FB6FF"/>
+
+    <SolidColorBrush x:Key="StarBrush" Color="#4DA3FF"/>
+    <sys:Double x:Key="StarOpacity">0.22</sys:Double>
+
+    <DropShadowEffect x:Key="CardShadow" BlurRadius="14" ShadowDepth="1" Direction="270" Color="#000000" Opacity="0.35"/>
+    <DropShadowEffect x:Key="ButtonShadow" BlurRadius="10" ShadowDepth="2" Direction="270" Color="#000000" Opacity="0.45"/>
+    <SolidColorBrush x:Key="HudBracketBrush" Color="#3EE7FF"/>
+    <DropShadowEffect x:Key="HudGlow" BlurRadius="20" ShadowDepth="0" Color="#3EE7FF" Opacity="0.65"/>
+
+</ResourceDictionary>
