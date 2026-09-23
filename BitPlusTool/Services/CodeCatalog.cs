@@ -25,6 +25,10 @@ public static class CodeCatalog
     public static CodeEntry? TryGet(string code)
         => Entries.TryGetValue(code.Trim().ToUpperInvariant(), out var e) ? e : null;
 
+    /// <summary>Datum des zuletzt erfolgreich abgerufenen Live-Caches, falls vorhanden (sonst null - dann
+    /// gilt der eingebettete Fallback-Stand aus AssemblyMetadata "CodelisteStand").</summary>
+    public static DateTime? LiveCacheDate => File.Exists(CacheFile) ? File.GetLastWriteTime(CacheFile) : null;
+
     /// <summary>
     /// Beim Programmstart aufrufen (fire-and-forget, blockiert die UI nicht): aktualisiert den lokalen
     /// Codeliste-Cache aus der Live-Codetabelle Werk 067, wenn er fehlt oder aelter als 30 Tage ist -

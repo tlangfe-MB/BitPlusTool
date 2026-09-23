@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,8 +37,29 @@ public partial class MainWindow : Window
         InitializeComponent();
         var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
         Title += $" (V. {version})";
-        _ = CodeCatalog.RefreshIfStaleAsync(); // Codeliste im Hintergrund aktualisieren, blockiert den Start nicht.
+        UpdateDataStandText();
+        _ = RefreshCodeCatalogAsync();
         Loaded += (_, _) => { _baseWidth = Width; _baseHeight = Height; Run(); };
+    }
+
+    private static string? AssemblyMeta(string key)
+        => Assembly.GetExecutingAssembly()
+            .GetCustomAttributes<AssemblyMetadataAttribute>()
+            .FirstOrDefault(a => a.Key == key)?.Value;
+
+    /// <summary>Zeigt an, wann die Codeliste (live oder eingebetteter Fallback) und die Baumuster-/
+    /// Motorenliste (immer eingebettet) zuletzt aktualisiert wurden.</summary>
+    private void UpdateDataStandText()
+    {
+        var codelisteStand = CodeCatalog.LiveCacheDate?.ToString("dd.MM.yyyy") ?? AssemblyMeta("CodelisteStand") ?? "unbekannt";
+        var baumusterStand = AssemblyMeta("BaumusterStand") ?? "unbekannt";
+        DataStandText.Text = $"Codeliste importiert: {codelisteStand}    ·    Baumuster importiert: {baumusterStand}";
+    }
+
+    private async Task RefreshCodeCatalogAsync()
+    {
+        await CodeCatalog.RefreshIfStaleAsync(); // Codeliste im Hintergrund aktualisieren, blockiert den Start nicht.
+        Dispatcher.Invoke(UpdateDataStandText);
     }
 
     private void ThemeToggleButton_Click(object sender, RoutedEventArgs e)

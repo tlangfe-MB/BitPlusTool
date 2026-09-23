@@ -25,4 +25,16 @@
     <Resource Include="Resources\Screenshots\normalisiertelogik.png" />
   </ItemGroup>
 
+  <!-- Stand der eingebetteten Stammdaten (Datum der zuletzt aktualisierten Quelldatei) fuer die Anzeige im UI. -->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>CodelisteStand</_Parameter1>
+      <_Parameter2>$([System.IO.File]::GetLastWriteTime('$(MSBuildProjectDirectory)\Resources\codedata.csv').ToString("dd.MM.yyyy"))</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>BaumusterStand</_Parameter1>
+      <_Parameter2>$([System.IO.File]::GetLastWriteTime('$(MSBuildProjectDirectory)\Resources\motordata.csv').ToString("dd.MM.yyyy"))</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+
 </Project>

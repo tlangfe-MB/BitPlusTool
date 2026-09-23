@@ -41,6 +41,7 @@
                         <Run Text="Die interne PLUS-Vorlage ist fest eingebettet, keine Auswahl noetig. TME eingeben, Dateiname wird automatisch daraus gebildet. Im Tab 'Selbstkontrolle' pruefen mehrere automatische Checks, ob dein Ausdruck korrekt gelesen und uebersetzt wurde."/>
                     </TextBlock>
                 </Border>
+                <TextBlock x:Name="DataStandText" HorizontalAlignment="Center" Foreground="{DynamicResource TextMutedBrush}" FontSize="12" Margin="0,6,0,0"/>
             </StackPanel>
             <Button x:Name="ThemeToggleButton" Grid.Column="2" Style="{StaticResource ThemeToggleButton}"
                     VerticalAlignment="Top" Click="ThemeToggleButton_Click">
