@@ -24,3 +24,21 @@ sw.Restart();
 await CodeCatalog.RefreshIfStaleAsync();
 sw.Stop();
 Console.WriteLine($"Zweiter Aufruf (sollte Cache nutzen, kein Netz): {sw.ElapsedMilliseconds} ms");
+
+Console.WriteLine();
+Console.WriteLine("=== MotorCatalog ===");
+Console.WriteLine("Eintraege: " + MotorCatalog.Entries.Count);
+
+void CheckMotor(string label, string[] tokens)
+{
+    var matches = MotorCatalog.FindMatches(tokens);
+    Console.WriteLine($"{label} [{string.Join("+", tokens)}] -> {matches.Count} Treffer");
+    foreach (var m in matches)
+        Console.WriteLine($"    {m.VerkBez} | {m.MotorKonzept} {m.MotorArt}{m.ZylAnzahl} | {m.Kw} KW / {m.Ps} PS | {m.Antriebsart} | Codebedingung=\"{m.Codebedingung}\"");
+}
+
+CheckMotor("Exaktes Motor-Codepaket", new[] { "M654", "M20", "M013" });
+CheckMotor("Codepaket + zusaetzliche Codes im Block (Teilmengen-Match)", new[] { "M654", "M20", "M013", "BR206", "460" });
+CheckMotor("Nur Teil des Codepakets (sollte NICHT matchen)", new[] { "M654", "M20" });
+CheckMotor("Unbekannte Kombination (sollte 0 Treffer geben)", new[] { "M999", "M111" });
+

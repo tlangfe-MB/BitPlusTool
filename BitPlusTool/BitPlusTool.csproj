@@ -18,6 +18,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\template.xml" />
     <EmbeddedResource Include="Resources\codedata.csv" />
+    <EmbeddedResource Include="Resources\motordata.csv" />
     <Resource Include="Resources\AppIcon.ico" />
   </ItemGroup>
 

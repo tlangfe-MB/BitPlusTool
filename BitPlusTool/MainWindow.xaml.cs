@@ -331,10 +331,18 @@ public partial class MainWindow : Window
                 sb.Append(DescribeTokens(r.Tokens, baureihe));
                 sb.Append('\n');
             }
+            // Motor-Abgleich: nur anzeigen, wenn die komplette Referenz-Codebedingung (z. B. "M654+M20+M013")
+            // in diesem Block enthalten ist - kein Raten bei blosser Teil-Ueberschneidung.
+            var blockTokens = v.Rows.SelectMany(r => r.Tokens);
+            foreach (var m in MotorCatalog.FindMatches(blockTokens).DistinctBy(x => x.VerkBez + "|" + x.Ps))
+                sb.Append("  -> Motor erkannt: ").Append(DescribeMotor(m)).Append('\n');
             sb.Append('\n');
         }
         LogicBox.Text = sb.ToString().TrimEnd('\n');
     }
+
+    private static string DescribeMotor(MotorEntry m)
+        => $"{m.VerkBez} - {m.MotorKonzept}, {m.MotorArt}{m.ZylAnzahl}, {m.Kw} KW / {m.Ps} PS, {m.Antriebsart}";
 
     private static string DescribeTokens(List<string> tokens, string baureihe)
     {
