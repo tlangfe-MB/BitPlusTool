@@ -340,9 +340,20 @@ public partial class MainWindow : Window
         var parts = new List<string>();
         foreach (var t in tokens)
         {
-            if (ExpressionParser.TypeOf(t) == TokenType.Snr)
+            var typ = ExpressionParser.TypeOf(t);
+            if (typ == TokenType.Snr)
             {
                 parts.Add("SNR: Schichtnummer-Grenze");
+                continue;
+            }
+            if (typ == TokenType.Ek)
+            {
+                parts.Add("EK: Empfaenger-Kennzeichen (steuert interne Verteilung, kein Ausstattungscode) - Wert: " + ExpressionParser.ValueOf(t, typ).TrimEnd('*'));
+                continue;
+            }
+            if (typ == TokenType.Br)
+            {
+                parts.Add("BR: Baureihe (Zeilenkriterium, kein Ausstattungscode) - Wert: " + ExpressionParser.ValueOf(t, typ));
                 continue;
             }
             var entry = CodeCatalog.TryGet(t);

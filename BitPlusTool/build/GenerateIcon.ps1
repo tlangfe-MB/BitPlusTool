@@ -20,7 +20,7 @@ function New-RobotBitmap {
     $g.Clear([System.Drawing.Color]::Transparent)
 
     $black = [System.Drawing.Color]::FromArgb(255, 15, 15, 15)
-    $yellow = [System.Drawing.Color]::FromArgb(255, 255, 216, 0)
+    $yellow = [System.Drawing.Color]::FromArgb(255, 15, 90, 189)
     $blackBrush = New-Object System.Drawing.SolidBrush $black
     $yellowBrush = New-Object System.Drawing.SolidBrush $yellow
 

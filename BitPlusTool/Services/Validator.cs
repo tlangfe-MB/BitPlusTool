@@ -174,7 +174,7 @@ public static class Validator
     public static CheckResult CheckCodeCatalogKnown(ParseResult result)
     {
         var tokens = result.Variants.SelectMany(v => v.Rows).SelectMany(r => r.Tokens)
-            .Where(t => ExpressionParser.TypeOf(t) != TokenType.Snr)
+            .Where(t => ExpressionParser.TypeOf(t) is not (TokenType.Snr or TokenType.Ek or TokenType.Br))
             .Distinct().ToList();
         var notInCatalog = tokens.Where(t => CodeCatalog.TryGet(t) is null).ToList();
         var tmeTokens = notInCatalog.Where(t => ExpressionParser.TypeOf(t) == TokenType.Tme).ToList();

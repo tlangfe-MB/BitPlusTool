@@ -103,6 +103,8 @@ public static class XmlTemplateBuilder
         TokenType.Tme => "TME",
         TokenType.Pcv => "PCV",
         TokenType.Snr => "SNR",
+        TokenType.Ek => "EK",
+        TokenType.Br => "BR",
         _ => "PC",
     };
 

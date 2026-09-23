@@ -1,6 +1,6 @@
 namespace BitPlusTool.Models;
 
-public enum TokenType { Tme, Pcv, Pc, Snr }
+public enum TokenType { Tme, Pcv, Pc, Snr, Ek, Br }
 
 /// <summary>Eine PLUS-Zeile: Operator (=/&lt;&gt;/&lt;/&lt;=/&gt;/&gt;=) plus eine Liste ODER-verknüpfter Tokens.</summary>
 public class PlusRow

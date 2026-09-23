@@ -47,11 +47,17 @@ public static class XmlImporter
             var rows = new List<PlusRow>();
             foreach (var zeileGroup in lfdGroup.GroupBy(r => r.ZeilenNr).OrderBy(g => g.Key))
             {
-                var isSnr = zeileGroup.First().Kriterientyp.Equals("SNR", StringComparison.OrdinalIgnoreCase);
+                var kriterientyp = zeileGroup.First().Kriterientyp;
+                var isSnr = kriterientyp.Equals("SNR", StringComparison.OrdinalIgnoreCase);
                 // SNR-Werte werden nicht mit '*' aufgefuellt und behalten das "SNR"-Praefix,
                 // damit ExpressionParser.TypeOf() sie beim Anzeigen/Exportieren wiedererkennt.
+                // EK (Empfaenger-Kennzeichen, steuert interne Verteilung, kein Ausstattungscode)
+                // und BR (Baureihe als Zeilenkriterium) bekommen aus demselben Grund ihr Praefix.
                 var tokens = zeileGroup.OrderBy(r => r.SpaltenNr)
-                    .Select(r => isSnr ? "SNR" + r.Wert : r.Wert.TrimEnd('*'))
+                    .Select(r => isSnr ? "SNR" + r.Wert
+                        : kriterientyp.Equals("EK", StringComparison.OrdinalIgnoreCase) ? "EK" + r.Wert.TrimEnd('*')
+                        : kriterientyp.Equals("BR", StringComparison.OrdinalIgnoreCase) ? "BR" + r.Wert.TrimEnd('*')
+                        : r.Wert.TrimEnd('*'))
                     .ToList();
                 var op = isSnr ? zeileGroup.First().Operator : (zeileGroup.First().Operator == "<>" ? "<>" : "=");
                 rows.Add(new PlusRow { Op = op, Tokens = tokens });
