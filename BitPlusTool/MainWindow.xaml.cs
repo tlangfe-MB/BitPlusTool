@@ -328,6 +328,26 @@ public partial class MainWindow : Window
         foreach (var v in result.Variants)
         {
             sb.Append("Nr. ").Append(v.Lfd).Append('\n');
+
+            // Motor-Abgleich vorab berechnen und jeden Treffer an die letzte Zeile "anheften", die noch zu
+            // seiner Motor-Codekombination gehoert - so steht der Hinweis direkt hinter dem Motor-Code
+            // (z. B. M177/M254) und nicht erst nach spaeteren, unabhaengigen Zeilen (z. B. TH-Referenzen).
+            var blockTokens = v.Rows.SelectMany(r => r.Tokens);
+            var matches = MotorCatalog.FindMatches(blockTokens).DistinctBy(x => x.VerkBez + "|" + x.Ps).ToList();
+            var matchesByAnchorRow = new Dictionary<int, List<MotorEntry>>();
+            foreach (var m in matches)
+            {
+                var anchor = 0;
+                for (int i = 0; i < v.Rows.Count; i++)
+                {
+                    if (v.Rows[i].Tokens.Any(t => m.Tokens.Contains(ExpressionParser.Tok(t))))
+                        anchor = i;
+                }
+                if (!matchesByAnchorRow.TryGetValue(anchor, out var list))
+                    matchesByAnchorRow[anchor] = list = new List<MotorEntry>();
+                list.Add(m);
+            }
+
             for (int i = 0; i < v.Rows.Count; i++)
             {
                 var r = v.Rows[i];
@@ -335,12 +355,11 @@ public partial class MainWindow : Window
                 sb.Append("  ").Append(i + 1).Append(". ").Append(ExpressionParser.DisplayDefinition(i, r, vals));
                 sb.Append(DescribeTokens(r.Tokens, baureihe));
                 sb.Append('\n');
+
+                if (matchesByAnchorRow.TryGetValue(i, out var hits))
+                    foreach (var m in hits)
+                        sb.Append("     -> Motor erkannt: ").Append(DescribeMotor(m)).Append('\n');
             }
-            // Motor-Abgleich: nur anzeigen, wenn die komplette Referenz-Codebedingung (z. B. "M654+M20+M013")
-            // in diesem Block enthalten ist - kein Raten bei blosser Teil-Ueberschneidung.
-            var blockTokens = v.Rows.SelectMany(r => r.Tokens);
-            foreach (var m in MotorCatalog.FindMatches(blockTokens).DistinctBy(x => x.VerkBez + "|" + x.Ps))
-                sb.Append("  -> Motor erkannt: ").Append(DescribeMotor(m)).Append('\n');
             sb.Append('\n');
         }
         LogicBox.Text = sb.ToString().TrimEnd('\n');
