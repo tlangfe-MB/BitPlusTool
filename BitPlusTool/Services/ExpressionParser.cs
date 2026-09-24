@@ -27,11 +27,14 @@ public static class ExpressionParser
     public static bool? GetTmeOverride(string code) => TmeOverrides.TryGetValue(Tok(code), out var v) ? v : null;
     public static void ClearTmeOverrides() => TmeOverrides.Clear();
 
-    /// <summary>Sieht aus wie ein moegliches TME (2 Buchstaben + 4 Ziffern), ist aber nicht sicher TH/M/ME/SNR.</summary>
+    /// <summary>Sieht aus wie ein moegliches TME (2 Buchstaben + 4 Ziffern), ist aber nicht sicher TH/M/ME/SNR.
+    /// EK/BR/BM sind ueber ihr Prefix bereits eindeutig (siehe TypeOf, das diese Praefixe vor TmeOverrides
+    /// prueft) und duerfen daher nie zur Nachfrage fuehren.</summary>
     public static bool IsAmbiguousTmeCandidate(string t)
     {
         t = Tok(t);
         if (SnrRegex.IsMatch(t) || t.StartsWith("SNR", StringComparison.Ordinal)) return false;
+        if (t.StartsWith("EK", StringComparison.Ordinal) || t.StartsWith("BR", StringComparison.Ordinal) || t.StartsWith("BM", StringComparison.Ordinal)) return false;
         if (TmeRegex1.IsMatch(t) || TmeRegex2.IsMatch(t)) return false;
         if (PcvRegex1.IsMatch(t) || PcvRegex2.IsMatch(t)) return false;
         if (TmeOverrides.ContainsKey(t)) return false;
