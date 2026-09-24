@@ -80,6 +80,19 @@ public partial class MainWindow : Window
 
     private void RunButton_Click(object sender, RoutedEventArgs e) => Run();
 
+    private void PasteButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (!Clipboard.ContainsText())
+        {
+            MessageBox.Show(this, "In der Zwischenablage steht aktuell kein Text.", "Zwischenablage leer", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
+        }
+
+        CodeBox.Text = Clipboard.GetText().Trim();
+        PasteStandText.Text = $"Eingefuegt aus Zwischenablage: {DateTime.Now:dd.MM.yyyy HH:mm:ss}";
+        Run();
+    }
+
     private void HelpButton_Click(object sender, RoutedEventArgs e)
     {
         new HelpWindow { Owner = this }.ShowDialog();

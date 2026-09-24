@@ -86,9 +86,20 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Margin="0,0,14,0">
-                    <TextBlock Text="Codebedingung" Style="{StaticResource SectionLabelStyle}"/>
-                    <TextBox x:Name="CodeBox" Height="96" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Codebedingung" Style="{StaticResource SectionLabelStyle}" VerticalAlignment="Center"/>
+                        <Button x:Name="PasteButton" Grid.Column="1" Style="{StaticResource SecondaryButton}" Padding="8,3" FontSize="12"
+                                Click="PasteButton_Click" ToolTip="Fuegt den aktuellen Inhalt der Windows-Zwischenablage hier ein">
+                            <TextBlock Text="Aus Zwischenablage"/>
+                        </Button>
+                    </Grid>
+                    <TextBox x:Name="CodeBox" Height="96" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="0,4,0,0"
                              Text="(M256+M30+M016+M005-M010)/(M139+M20+M014+M005+ME10)/(M177+M40+M014+M005+M010);"/>
+                    <TextBlock x:Name="PasteStandText" Foreground="{DynamicResource TextMutedBrush}" FontSize="12" Margin="0,4,0,0" TextWrapping="Wrap"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" VerticalAlignment="Center">
