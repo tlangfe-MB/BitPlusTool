@@ -71,7 +71,9 @@
                         <ListItem><Paragraph><Bold>Dateiname XML</Bold> - wird automatisch aus dem TME gebildet (z. B.
                             "TH1144.xml"), kann aber frei ueberschrieben werden.</Paragraph></ListItem>
                         <ListItem><Paragraph><Bold>Codebedingung</Bold> - das grosse Eingabefeld: hier den logischen Ausdruck
-                            eintragen oder per Import einlesen. Wird bei jeder Aenderung sofort neu ausgewertet.</Paragraph></ListItem>
+                            eintragen oder per Import einlesen. Wird bei jeder Aenderung sofort neu ausgewertet. Ueber den
+                            Button <Bold>"Aus Zwischenablage"</Bold> direkt daneben laesst sich ein zuvor in Windows kopierter
+                            Code-Text mit einem Klick einfuegen - darunter erscheint dann Datum/Uhrzeit des Einfuegens.</Paragraph></ListItem>
                     </List>
 
                     <Paragraph FontSize="19" FontWeight="Bold" Foreground="{DynamicResource GroupHeaderFgBrush}" Margin="0,10,0,6">
@@ -85,6 +87,9 @@
                             und speichert sie unter dem gewaehlten Dateinamen auf der Festplatte. Erfordert ein ausgefuelltes TME-Feld.</Paragraph></ListItem>
                         <ListItem><Paragraph><Bold>⬆ XML importieren</Bold> - liest eine bestehende PLUS-XML-Datei ein, rekonstruiert
                             daraus die Codebedingung und das TME und zeigt beides direkt im Eingabebereich an.</Paragraph></ListItem>
+                        <ListItem><Paragraph><Bold>Aus Zwischenablage</Bold> (neben dem Codebedingung-Feld) - fuegt den aktuellen
+                            Text aus der Windows-Zwischenablage ein und wertet ihn sofort aus. Zeigt Datum/Uhrzeit des
+                            Einfuegens an, damit nachvollziehbar bleibt, wann der Code kopiert wurde.</Paragraph></ListItem>
                         <ListItem><Paragraph><Bold>A- / A+</Bold> (oben links) - verkleinert/vergroessert die gesamte
                             Bedienoberflaeche (Zoom), passt dabei auch die Fenstergroesse an.</Paragraph></ListItem>
                         <ListItem><Paragraph><Bold>Sonne/Mond-Schalter</Bold> (oben rechts) - wechselt zwischen hellem und
@@ -144,6 +149,8 @@
                             Netzzugriff wird die zuletzt gespeicherte bzw. eingebettete Liste verwendet.</Paragraph></ListItem>
                         <ListItem><Paragraph><Bold>Motoren-/Baumusterliste</Bold> - ein Snapshot der Baumusteruebersicht,
                             der Motor-Codekombinationen automatisch bekannten Fahrzeugmodellen und Motordaten zuordnet.</Paragraph></ListItem>
+                        <ListItem><Paragraph>Den Stand beider Quellen (Datum des letzten Imports) zeigt das Tool direkt im
+                            Kopfbereich unter dem Hinweis-Kasten an: "Codeliste importiert: ... · Baumuster importiert: ...".</Paragraph></ListItem>
                     </List>
                 </FlowDocument>
             </FlowDocumentScrollViewer>
