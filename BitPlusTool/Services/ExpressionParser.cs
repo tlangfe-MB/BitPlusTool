@@ -16,7 +16,9 @@ public static class ExpressionParser
     private static readonly Regex PcvRegex1 = new(@"^M\d+", RegexOptions.Compiled);
     private static readonly Regex PcvRegex2 = new(@"^ME\d+", RegexOptions.Compiled);
     private static readonly Regex SnrRegex = new(@"^SNR(<=|>=|<|>)(.+)$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-    private static readonly Regex AmbiguousTmeShapeRegex = new(@"^[A-Z]{2}\d{4}$", RegexOptions.Compiled);
+    // 2 Buchstaben+4 Ziffern (z. B. "PH6068") oder 3 Buchstaben+3 Ziffern (z. B. "LKR097") - beide Formen
+    // kommen als reine TME-Querverweise vor, die in keinem codedata.csv/Katalog stehen.
+    private static readonly Regex AmbiguousTmeShapeRegex = new(@"^([A-Z]{2}\d{4}|[A-Z]{3}\d{3})$", RegexOptions.Compiled);
 
     // Manuelle Einstufung fuer Codes, die wie ein TME aussehen koennten (2 Buchstaben + 4 Ziffern),
     // aber nicht eindeutig ueber TH.../S-... erkennbar sind (z. B. "PH6068"). Wird interaktiv vom
