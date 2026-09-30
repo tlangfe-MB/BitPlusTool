@@ -403,8 +403,12 @@ public static class ExpressionParser
                 parts.Add((r.Op == "<>" ? "-" : "") + r.Tokens[0]);
             else
             {
+                // Immer klammern, auch unnegiert: sonst ist ein lokales ODER wie "460/494/835" beim
+                // erneuten Parsen nicht von 3+ echten Motor-Varianten-Alternativen unterscheidbar
+                // (siehe ExpressionParser.ParseAltToRows-Heuristik) und wuerde faelschlich in mehrere
+                // eigene Bloecke aufgespalten (Bug-Report TH0864: 4 -> 6 Bloecke nach Reparse).
                 var joined = string.Join("/", r.Tokens);
-                parts.Add(r.Op == "<>" ? "-(" + joined + ")" : joined);
+                parts.Add(r.Op == "<>" ? "-(" + joined + ")" : "(" + joined + ")");
             }
         }
         return string.Join("+", parts);
