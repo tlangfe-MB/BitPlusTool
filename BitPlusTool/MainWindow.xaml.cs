@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
-using System.Windows.Threading;
 using BitPlusTool.Models;
 using BitPlusTool.Services;
 using Microsoft.Win32;
@@ -195,7 +194,6 @@ public partial class MainWindow : Window
         try
         {
             var result = ExpressionParser.Parse(code);
-            ResolveAmbiguousTmeTokens(result);
             RenderPlus(result);
             RenderLogic(result, baureihe);
             RenderTmeRefs(result);
@@ -244,31 +242,6 @@ public partial class MainWindow : Window
             ChecksList.ItemsSource = null;
             StatusText.Text = "Fehler: " + ex.Message;
             StatusText.Foreground = (Brush)FindResource("ErrorBrush");
-        }
-    }
-
-    /// <summary>Fragt einmalig pro Code nach, ob ein unklarer 2-Buchstaben+4-Ziffern-Code (z. B. "PH6068")
-    /// ein TME ist, oder als normaler PC-Code behandelt werden soll. TH.../S-... etc. sind bereits eindeutig.</summary>
-    private void ResolveAmbiguousTmeTokens(ParseResult result)
-    {
-        var candidates = result.Variants.SelectMany(v => v.Rows).SelectMany(r => r.Tokens)
-            .Where(ExpressionParser.IsAmbiguousTmeCandidate)
-            .Distinct()
-            .ToList();
-
-        foreach (var t in candidates)
-        {
-            // Vor jedem MessageBox einen Layout-/Render-Durchlauf erzwingen: sonst kann DWM beim
-            // schnellen Aufeinanderfolgen mehrerer nativer Dialoge ein veraltetes Frame des Fensters
-            // links daneben als "Geisterbild" stehen lassen (Bug-Report: verschwindet bei Screenshot,
-            // also kein echter zweiter Fensterinhalt, sondern ein reiner DWM-Kompositions-Artefakt).
-            UpdateLayout();
-            Dispatcher.Invoke(() => { }, DispatcherPriority.Render);
-
-            var answer = MessageBox.Show(this,
-                $"Der Code '{t}' ist nicht eindeutig zuzuordnen.\n\nIst '{t}' ein Technisches Merkmal (TME)?\n\nJa = TME\nNein = normaler Code (PC)",
-                "Code-Einstufung: " + t, MessageBoxButton.YesNo, MessageBoxImage.Question);
-            ExpressionParser.SetTmeOverride(t, answer == MessageBoxResult.Yes);
         }
     }
 

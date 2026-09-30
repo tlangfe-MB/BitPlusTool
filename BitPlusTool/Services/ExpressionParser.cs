@@ -117,6 +117,11 @@ public static class ExpressionParser
         if (TmeRegex1.IsMatch(t) || TmeRegex2.IsMatch(t)) return TokenType.Tme;
         if (PcvRegex1.IsMatch(t) || PcvRegex2.IsMatch(t)) return TokenType.Pcv;
         if (TmeOverrides.TryGetValue(t, out var isTme)) return isTme ? TokenType.Tme : TokenType.Pc;
+        // Codes mit unklarer Form (z. B. "PH6068", "LKR097"): steht der Code in der Codeliste, ist es ein
+        // PR-Code; TMEs stehen dort nie drin (siehe Validator.CheckCodeCatalogKnown) - automatische
+        // Entscheidung statt Rueckfrage per MessageBox (verursachte ein DWM-Render-Artefakt).
+        if (AmbiguousTmeShapeRegex.IsMatch(t))
+            return CodeCatalog.TryGet(t) is null ? TokenType.Tme : TokenType.Pc;
         return TokenType.Pc;
     }
 
