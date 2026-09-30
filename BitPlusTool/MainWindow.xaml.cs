@@ -413,7 +413,10 @@ public partial class MainWindow : Window
             }
             if (typ == TokenType.Bm)
             {
-                parts.Add("BM: Baumuster (Struktur-/Modellvariante, kein Ausstattungscode) - Wert: " + ExpressionParser.ValueOf(t, typ).TrimEnd('*'));
+                var wert = ExpressionParser.ValueOf(t, typ).TrimEnd('*');
+                var lenkung = ExpressionParser.DescribeBmLenkung(t);
+                parts.Add("BM: Baumuster (Struktur-/Modellvariante, kein Ausstattungscode) - Wert: " + wert
+                    + (lenkung is null ? "" : $" (Lenkerseite: {lenkung})"));
                 continue;
             }
             var entry = CodeCatalog.TryGet(t);

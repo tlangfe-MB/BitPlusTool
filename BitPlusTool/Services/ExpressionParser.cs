@@ -135,6 +135,22 @@ public static class ExpressionParser
         return type == TokenType.Pcv ? t.PadRight(6, '*') : t;
     }
 
+    /// <summary>Letzte Stelle der BM-AA-Nummer (Baumusteruebersicht Werk Bremen) codiert die Lenkerseite
+    /// ("1" = Linkslenker, "2" = Rechtslenker; "5"/"6" = dieselbe Seite fuer eine Sondervariante) - vom
+    /// User bestaetigt anhand Beispiel "C2363521". Andere Stellen sind (noch) nicht dekodiert.</summary>
+    public static string? DescribeBmLenkung(string t)
+    {
+        var sig = Tok(t);
+        if (sig.StartsWith("BM", StringComparison.Ordinal)) sig = sig.Substring(2);
+        if (sig.Length == 0) return null;
+        return sig[^1] switch
+        {
+            '1' or '5' => "Linkslenker",
+            '2' or '6' => "Rechtslenker",
+            _ => null,
+        };
+    }
+
     public static PlusRow MakeRow(string op, IEnumerable<string> tokens)
         => new() { Op = op, Tokens = tokens.Select(Tok).Where(x => x.Length > 0).ToList() };
 
