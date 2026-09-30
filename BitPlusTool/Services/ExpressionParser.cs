@@ -173,9 +173,44 @@ public static class ExpressionParser
         var altParts = SplitTopLevel(stripped, '/');
         if (altParts.Count >= 3 && altParts.Any(a => SplitTopLevel(StripOuter(a), '+').Count > 1))
         {
+            // Alternativen, die explizit ihre eigene Klammer tragen ("(A+B)/(C+D)/..."), sind ein
+            // eindeutiges Signal des Users "jede davon ist ein eigener Block" - werden IMMER einzeln
+            // verarbeitet, unabhaengig von gemeinsamen Praefixen (siehe "MIT inneren Klammern"-Testfall).
+            // Bare Alternativen ohne eigene Klammer, die sich NUR im letzten Wert unterscheiden
+            // (identischer "+"-Praefix, z. B. "A08+M254+1U2+460" / "...+494" / "...+835"), gehoeren
+            // dagegen fachlich zusammen und bleiben EIN Block mit einer ODER-Zeile fuer die
+            // abweichenden letzten Werte (Bug-Report TH0864: 4 Bloecke waren falsch, richtig sind 2 -
+            // ein Block je unterschiedlichem Praefix "A08+M254+1U2" bzw. "A12+M254").
+            var byPrefix = new Dictionary<string, List<List<string>>>();
+            var order = new List<string>();
+            var ownBlocks = new List<string>();
+            foreach (var a in altParts)
+            {
+                if (IsFullyParenthesized(a)) { ownBlocks.Add(a); continue; }
+                var tokens = SplitTopLevel(StripOuter(a), '+');
+                if (tokens.Count == 0) { ownBlocks.Add(a); continue; }
+                var prefixKey = string.Join("+", tokens.Take(tokens.Count - 1));
+                if (!byPrefix.TryGetValue(prefixKey, out var list)) { list = new(); byPrefix[prefixKey] = list; order.Add(prefixKey); }
+                list.Add(tokens);
+            }
+
             var altBlocks = new List<List<PlusRow>>();
-            foreach (var altPart in altParts)
-                altBlocks.AddRange(ParseAltToRows(altPart, inheritedNeg));
+            foreach (var key in order)
+            {
+                var group = byPrefix[key];
+                if (group.Count == 1)
+                {
+                    var singleAlt = string.Join("+", group[0]);
+                    altBlocks.AddRange(ParseAltToRows(singleAlt, inheritedNeg));
+                    continue;
+                }
+                var row = group[0].Take(group[0].Count - 1).Select(t => MakeSingleValueRow(t, inheritedNeg)).ToList();
+                row.Add(MakeRow(inheritedNeg ? "<>" : "=", group.Select(g => g[^1])));
+                altBlocks.Add(row);
+            }
+            foreach (var a in ownBlocks)
+                altBlocks.AddRange(ParseAltToRows(a, inheritedNeg));
+
             return altBlocks;
         }
 
@@ -219,6 +254,22 @@ public static class ExpressionParser
         }
 
         return blocks;
+    }
+
+    /// <summary>Prueft, ob "a" (optional mit fuehrendem '-') als Ganzes GENAU eine Klammer-Gruppe ist,
+    /// z. B. "(A+B)" oder "-(A+B)" - nicht aber "A+B" oder "(A)+B".</summary>
+    private static bool IsFullyParenthesized(string a)
+    {
+        var s = a.Trim();
+        if (s.StartsWith("-", StringComparison.Ordinal)) s = s.Substring(1).TrimStart();
+        if (s.Length < 2 || s[0] != '(' || s[^1] != ')') return false;
+        int depth = 0;
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (s[i] == '(') depth++;
+            else if (s[i] == ')') { depth--; if (depth == 0 && i < s.Length - 1) return false; }
+        }
+        return true;
     }
 
     /// <summary>Erkennt, ob "body" nur aus einer oder mehreren komplett geklammerten Gruppen besteht, die

@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Windows.Threading;
 using BitPlusTool.Models;
 using BitPlusTool.Services;
 using Microsoft.Win32;
@@ -257,6 +258,13 @@ public partial class MainWindow : Window
 
         foreach (var t in candidates)
         {
+            // Vor jedem MessageBox einen Layout-/Render-Durchlauf erzwingen: sonst kann DWM beim
+            // schnellen Aufeinanderfolgen mehrerer nativer Dialoge ein veraltetes Frame des Fensters
+            // links daneben als "Geisterbild" stehen lassen (Bug-Report: verschwindet bei Screenshot,
+            // also kein echter zweiter Fensterinhalt, sondern ein reiner DWM-Kompositions-Artefakt).
+            UpdateLayout();
+            Dispatcher.Invoke(() => { }, DispatcherPriority.Render);
+
             var answer = MessageBox.Show(this,
                 $"Der Code '{t}' ist nicht eindeutig zuzuordnen.\n\nIst '{t}' ein Technisches Merkmal (TME)?\n\nJa = TME\nNein = normaler Code (PC)",
                 "Code-Einstufung: " + t, MessageBoxButton.YesNo, MessageBoxImage.Question);
